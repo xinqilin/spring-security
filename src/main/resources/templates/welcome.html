@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1 align="center">書籍管理系統</h1>
+<div sec:authorize="!isAuthenticated()">
+	<h2 align="center">你好 ! 想觀看請登入 <a th:href="@{/userlogin}">請登入</a></h2>
+</div>
+<div sec:authorize="isAuthenticated()">
+	<h2><span sec:authentication="name"></span>，您好,您的角色有：
+		<span sec:authentication="principal.authorities"></span></h2>
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="註銷"/>
+	</form>
+</div>
+
+<hr>
+
+<div sec:authorize="hasRole('VIP1')">
+	<h3>普通武功</h3>
+	<ul>
+		<li><a th:href="@{/level1/1}">九陰白骨爪</a></li>
+		<li><a th:href="@{/level1/2}">睡夢羅漢拳</a></li>
+		<li><a th:href="@{/level1/3}">獨沽九劍</a></li>
+	</ul>
+
+</div>
+
+<div sec:authorize="hasRole('VIP2')">
+	<h3>高級武功秘籍</h3>
+	<ul>
+		<li><a th:href="@{/level2/1}">獅吼功</a></li>
+		<li><a th:href="@{/level2/2}">太極拳</a></li>
+		<li><a th:href="@{/level2/3}">少林龍抓手</a></li>
+	</ul>
+
+</div>
+
+<div sec:authorize="hasRole('VIP3')">
+	<h3>絕世武功秘籍</h3>
+	<ul>
+		<li><a th:href="@{/level3/1}">一陽指</a></li>
+		<li><a th:href="@{/level3/2}">九陽神功</a></li>
+		<li><a th:href="@{/level3/3}">乾坤大挪移</a></li>
+	</ul>
+</div>
+
+
+</body>
+</html>
