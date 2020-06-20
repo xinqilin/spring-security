@@ -25,6 +25,10 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 		http.formLogin();
 		//進登入頁
 		///login?error 表示失敗
+		
+		
+//		http.logout();
+		http.logout().logoutSuccessUrl("/");//登出後回首頁
 	}
 
 	

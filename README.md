@@ -25,10 +25,13 @@ http.authorizeRequests().antMatchers("/").permitAll()
 
 
 ```java
-//開啟auto config的登入功能
+		//開啟auto config的登入功能
 		http.formLogin();
 		//進登入頁
 		///login?error 表示失敗
+		
+		//開啟auto config的登出功能
+		http.logout();
 ```
 
 
@@ -63,3 +66,30 @@ http.authorizeRequests().antMatchers("/").permitAll()
     //2. auth.userDetailsService(userService).passwordEncoder(new BCryptPasswordEncoder());
 	
 ```
+
+
+### thymeleaf 顯示springSecurity資訊
+
+```html
+<div sec:authorize="isAuthenticated()">
+	<h2><span sec:authentication="name"></span>，您好,您的角色有：
+		<span sec:authentication="principal.authorities"></span></h2>
+</div>
+```
+
+1. 搜尋依賴注入thymeleaf-extras-springsecurity4 maven repository 
+
+```java
+載入
+<dependency>
+    <groupId>org.thymeleaf.extras</groupId>
+    <artifactId>thymeleaf-extras-springsecurity4(有可能是5)</artifactId>
+    <version>3.0.2.RELEASE</version>
+</dependency>
+
+
+```
+
+html加上
+版本問題要注意一下 thymeleaf-extras-springsecurity4、thymeleaf-extras-springsecurity5
+``xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"``
