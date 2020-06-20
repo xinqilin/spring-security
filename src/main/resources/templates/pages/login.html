@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+		xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -8,7 +9,7 @@
 	<h1 align="center">歡迎光臨Bill書籍系統</h1>
 	<hr>
 	<div align="center">
-		<form th:action="@{/userlogin}" method="post">
+		<form th:action="@{/user}" method="post">
 			帳號:<input name="user"/><br>
 			密碼:<input name="pwd" type="password"><br/>
 			<input type="checkbox" name="remeber"> 記住我<br/>

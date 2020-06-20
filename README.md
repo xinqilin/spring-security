@@ -77,7 +77,7 @@ http.authorizeRequests().antMatchers("/").permitAll()
 </div>
 ```
 
-1. 搜尋依賴注入thymeleaf-extras-springsecurity4 maven repository 
+1. 搜尋依賴注入thymeleaf-extras-springsecurity4(5) maven repository 
 
 ```java
 載入

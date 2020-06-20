@@ -22,13 +22,15 @@ public class MySecurityConfig extends WebSecurityConfigurerAdapter{
 								.antMatchers("/level3/**").hasRole("VIP3");
 	
 		//開啟auto config的登入功能
-		http.formLogin();
+		http.formLogin().usernameParameter("user").passwordParameter("pwd");
 		//進登入頁
 		///login?error 表示失敗
 		
 		
 //		http.logout();
 		http.logout().logoutSuccessUrl("/");//登出後回首頁
+		
+		http.rememberMe();
 	}
 
 	
