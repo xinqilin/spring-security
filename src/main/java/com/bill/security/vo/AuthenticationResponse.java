@@ -1,6 +1,8 @@
 package com.bill.security.vo;
 
-public class AuthenticationResponse {
+import java.io.Serializable;
+
+public class AuthenticationResponse implements Serializable {
 
     private final String jwt;
 

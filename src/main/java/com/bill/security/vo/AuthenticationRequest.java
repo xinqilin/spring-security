@@ -1,6 +1,8 @@
 package com.bill.security.vo;
 
-public class AuthenticationRequest {
+import java.io.Serializable;
+
+public class AuthenticationRequest implements Serializable {
 
     private String userName;
 
